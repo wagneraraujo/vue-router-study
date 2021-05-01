@@ -1,10 +1,12 @@
 <template>
-  <div class="home">{{ api }}</div>
+  <div>
+    {{ contato }}
+  </div>
 </template>
 
 <script>
 export default {
-  name: "Home",
+  name: "contato",
   data() {
     return {
       api: null
@@ -12,7 +14,7 @@ export default {
   },
   methods: {
     fetchData() {
-      fetch("http://localhost:3000/home")
+      fetch("http://localhost:3000/contato")
         .then(r => r.json())
         .then(r => {
           this.api = r;
