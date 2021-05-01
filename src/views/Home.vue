@@ -3,25 +3,13 @@
 </template>
 
 <script>
+import fetchData from "@/mixins/fetchData.js";
 export default {
   name: "Home",
-  data() {
-    return {
-      api: null
-    };
-  },
-  methods: {
-    fetchData() {
-      fetch("http://localhost:3000/home")
-        .then(r => r.json())
-        .then(r => {
-          this.api = r;
-        });
-    }
-  },
+  mixins: [fetchData],
 
   created() {
-    this.fetchData();
+    this.fetchData("home");
   }
 };
 </script>

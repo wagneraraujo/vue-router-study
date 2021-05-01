@@ -1,29 +1,17 @@
 <template>
   <div>
-    {{ contato }}
+    {{ api }}
   </div>
 </template>
 
 <script>
+import fetchData from "@/mixins/fetchData";
 export default {
   name: "contato",
-  data() {
-    return {
-      api: null
-    };
-  },
-  methods: {
-    fetchData() {
-      fetch("http://localhost:3000/contato")
-        .then(r => r.json())
-        .then(r => {
-          this.api = r;
-        });
-    }
-  },
+  mixins: [fetchData],
 
   created() {
-    this.fetchData();
+    this.fetchData("contato");
   }
 };
 </script>
