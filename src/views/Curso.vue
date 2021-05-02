@@ -5,8 +5,15 @@
 
     <h4>aulas</h4>
     <ul>
-      <li v-for="aula in api.aulas" :key="aula.id">{{ aula.nome }}</li>
+      <li v-for="aula in api.aulas" :key="aula.id">
+        <router-link :to="{name: 'aula', params: {aula: aula.id}}">
+        {{ aula.nome }}
+        </router-link>
+        </li>
     </ul>
+
+  <router-view></router-view>
+
   </div>
 </template>
 
@@ -19,6 +26,11 @@ export default {
 
   created() {
     this.fetchData(`curso/${this.curso}`);
+  },
+
+  beforeUpdate(to, from, next){
+    this.fetchData(`aula/${to.params.aula}`)
+    next( )
   }
 };
 </script>
