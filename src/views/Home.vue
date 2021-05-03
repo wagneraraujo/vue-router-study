@@ -1,6 +1,5 @@
 <template>
   <div>
-    <div v-if="loading">Carregando...</div>
     <div class="home" v-if="api">
       <h3>{{ api.titulo }}</h3>
       <p>{{ api.descricao }}</p>
